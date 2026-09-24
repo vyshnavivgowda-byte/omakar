@@ -1,14 +1,24 @@
 "use client";
 
 import { Sparkles, ArrowRight, Play } from "lucide-react";
+import { useState } from "react";
 
 export default function Hero() {
-  const handleVideoEnd = () => {
-    // Scroll down past the hero section smoothly
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  const handleVideoEnd = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    // Play the video again
+    const video = e.target as HTMLVideoElement;
+    video.play();
+
+    // Scroll down past the hero section smoothly (only the first time)
+    if (!hasScrolled) {
+      setHasScrolled(true);
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (

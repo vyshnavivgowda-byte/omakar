@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Preloader from "../components/Preloader";
 import Hero from "../components/Hero";
 import Stats from "../components/Stats";
 import About from "../components/About";
@@ -14,6 +15,7 @@ import Footer from "../components/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f4f1ea] text-[#101714] font-sans selection:bg-teal-500 selection:text-white overflow-x-hidden">
+      <Preloader />
       <Header />
       <Hero />
       <About />
